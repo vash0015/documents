@@ -1,0 +1,85 @@
+/* font-family-proportional */
+@font-face {
+	font-family: ffp;
+	src: local(Meiryoke_PGothic), local("Meiryo UI"), local("ＭＳ Ｐゴシック");
+}
+
+@font-face {
+	font-family: ffp-l;
+	src: local("游ゴシック"), local("メイリオ"), local(Meiryoke_PGothic), local("Meiryo UI"), local("ＭＳ Ｐゴシック");
+}
+
+* {
+	font-family: ffp;
+	font-size: 16px;
+}
+
+ul.notice li {
+	list-style:none;
+	text-indent:-2.5em;
+	padding-left:2.5em;
+}
+
+
+
+.secret-stamp {
+	font-weight:bold;
+	font-size: 14px;
+	text-align: left;
+}
+
+.parameter {
+	font-size: 12px;
+	text-align: right;
+}
+
+.title {
+	font-weight:bold;
+	font-size: 32px;
+	text-align: center;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: ffp;
+	font-size: 20px;
+}
+
+/* 章立て */
+chapter { counter-reset: c1; }
+chapter > h1 { counter-reset: c2; }
+chapter > h2 { counter-reset: c3; }
+chapter > h3 { counter-reset: c4; }
+chapter > h4 { counter-reset: c5; }
+chapter > h5 { counter-reset: c6; }
+
+chapter > h1:before {
+	margin-right: .5em;
+	content: counter(c1)".";
+	counter-increment: c1;
+}
+chapter > h2:before {
+	margin-right: .5em;
+	content: counter(c1)"."counter(c2)".";
+	counter-increment: c2;
+}
+chapter > h3:before {
+	margin-right: .5em;
+	content: counter(c1)"."counter(c2)"."counter(c3)".";
+	counter-increment: c3;
+}
+chapter > h4:before {
+	margin-right: .5em;
+	content: counter(c1)"."counter(c2)"."counter(c3)"."counter(c4)".";
+	counter-increment: c4;
+}
+chapter > h5:before {
+	margin-right: .5em;
+	content: counter(c1)"."counter(c2)"."counter(c3)"."counter(c4)"."counter(c5)".";
+	counter-increment: c5;
+}
+chapter > h6:before {
+	margin-right: .5em;
+	content: counter(c1)"."counter(c2)"."counter(c3)"."counter(c4)"."counter(c5)"."counter(c6)".";
+	counter-increment: c6;
+}
