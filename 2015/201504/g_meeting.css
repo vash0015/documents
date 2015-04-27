@@ -20,8 +20,6 @@ ul.notice li {
 	padding-left:2.5em;
 }
 
-
-
 .secret-stamp {
 	font-weight:bold;
 	font-size: 14px;
@@ -31,6 +29,7 @@ ul.notice li {
 .parameter {
 	font-size: 12px;
 	text-align: right;
+	line-height: 0.8em;
 }
 
 .title {

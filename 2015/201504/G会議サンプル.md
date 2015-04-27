@@ -1,15 +1,15 @@
 <meta charset="UTF-8">
 
+<div style="text-align: left;">【社外秘】</div>
 
-<p class=secret-stamp>【社外秘】</p>
+<div style="text-align: center;"> 2015年xx度グループ会議報告書</div>
+==================================================================
 
-<p class=title>2015年xx月度グループ会議報告書</p>
-
-<p class="parameter">
+<div style="text-align: right;">
 第一開発部 知識制御グループ</br>
 溝渕創一郎</br>
 2015年05月XX日</br>
-</p>
+</div>
 
 <chapter>
 <h1>PJ報告</h1>
