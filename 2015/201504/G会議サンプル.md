@@ -1,17 +1,17 @@
 <meta charset="UTF-8">
 
-<p class=secret-stamp>【社外秘】</p>
+<p class=secret-stamp>【○○○】</p>
 
-<p class=title>2015年xx月度グループ会議報告書</p>
+<p class=title>2015年xx月度○○○○会議報告書</p>
 
 <div class="parameter">
-第一開発部 知識制御グループ</br>
-溝渕創一郎</br>
+○○○○部 ○○○○グループ</br>
+山田太郎</br>
 2015年05月XX日</br>
 </div>
 
 
-PJ報告 - SW社M案件(4/xx～4/xx)
+PJ報告 - A社B案件(4/xx～4/xx)
 ===============================================
 
 ## 現状
