@@ -48,7 +48,7 @@ https://atom.io/assets/screenshot-main-9821a05131c9b808d7cafda7b7e8db39.gif)
 
 ## ためしに Markdown を開いてみる
 
-Atom からこの md ファイルを開いて Ctrl+Shift+M で表示。
+Atom からこの md ファイルを開いて `Ctrl+Shift+M` で表示。
 プレビュー設定が違うので表示が違うけど、イメージとしてはこんな感じ。
 
 ![sample](atom_markdown.jpg)
