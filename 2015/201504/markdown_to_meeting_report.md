@@ -84,6 +84,9 @@ Install を選んで下記のパッケージを入れる。
  @import "styles/markdown-to-pdf";
 ```
 
+`Ctrl+Alt+r` でパッケージ再読み込み、反映させる。
+
+
 
 ## ユーザースタイルの編集
 
