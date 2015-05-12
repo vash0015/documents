@@ -48,7 +48,6 @@ http://qiita.com/icoxfog417/items/65e800c3a2094457c3a0)
 * スライド
     * [一般向けの Deep Learning]( http://www.slideshare.net/pfi/deep-learning-22350063)
     * [実装 ディープラーニング]( http://www.slideshare.net/yurieoka37/ss-28152060)
-    * [Deep Learning と画像認識]( http://www.slideshare.net/nlab_utokyo/deep-learning-40959442?next_slideshow=2)
     * [Deep learning]( http://www.slideshare.net/kazoo04/deep-learning-15097274)
     * [Tutorial on Deep Learning and Applications]( https://deeplearningworkshopnips2010.files.wordpress.com/2010/09/nips10-workshop-tutorial-final.pdf)
 * 解説記事
