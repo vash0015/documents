@@ -1,6 +1,6 @@
 # 調査の趣旨や雑感など
 
-最近の機械学習のトレンドは Deep Leaning らしい。次期PJでは先進的な検出システムの研究開発に関わるとのことで Deep Learning について概要だけでも触っておくべきだと判断した。
+最近の機械学習のトレンドは Deep Leaning らしい。次期PJでは先進的な検出システム(超迅速多項目)の研究開発に関わるとのことで Deep Learning について概要だけでも触れておくべきと判断した。
 
 ざっとスライド類を眺めてみて「従来職人芸で行われていた特徴抽出をメタレベルで設計し、自動的に行わせることができる」というのが最大の特徴ではないかと感じた。
 
@@ -23,6 +23,10 @@ http://qiita.com/icoxfog417/items/65e800c3a2094457c3a0)
 [特徴量研究者涙目](https://twitter.com/ambee_whisper/status/256039859528019968)
 だとかなんとか。
 
+スライド
+[実装 ディープラーニング]( http://www.slideshare.net/yurieoka37/ss-28152060)
+から引用。
+
 ![8ページ]( http://image.slidesharecdn.com/deeplearning-121109044234-phpapp01/95/deep-learning-8-638.jpg?cb=1352436208)
 
 ![9ページ]( http://image.slidesharecdn.com/deeplearning-121109044234-phpapp01/95/deep-learning-9-638.jpg?cb=1352436208)
@@ -41,11 +45,9 @@ http://qiita.com/icoxfog417/items/65e800c3a2094457c3a0)
 
 # 参考サイト
 
-## スライド
-
 * スライド
     * [一般向けの Deep Learning]( http://www.slideshare.net/pfi/deep-learning-22350063)
-    * [実装ディープラーニング]( http://www.slideshare.net/pfi/deep-learning-22350063)
+    * [実装 ディープラーニング]( http://www.slideshare.net/yurieoka37/ss-28152060)
     * [Deep Learning と画像認識]( http://www.slideshare.net/nlab_utokyo/deep-learning-40959442?next_slideshow=2)
     * [Deep learning]( http://www.slideshare.net/kazoo04/deep-learning-15097274)
     * [Tutorial on Deep Learning and Applications]( https://deeplearningworkshopnips2010.files.wordpress.com/2010/09/nips10-workshop-tutorial-final.pdf)
