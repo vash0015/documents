@@ -40,7 +40,7 @@ http://qiita.com/icoxfog417/items/65e800c3a2094457c3a0)
 
 # キーワード
 
-[活性化関数], Rectified linear units, ReLU, 過学習回避手法, Dropout, 教師なし事前学習, restricted Boltzmann machine,  RBM, Autoencoder, Bag-of-visual-words, Convolutional neural network, ConvNets, Fine-tuning, Pre-trained feature,  [ImageNet], shallow lerning, [Caffe]
+[活性化関数], [Rectifier], [ReLU(=A unit employing the rectifier)], 過学習回避手法, Dropout, 教師なし事前学習, restricted Boltzmann machine,  RBM, Autoencoder, Bag-of-visual-words, Convolutional neural network, ConvNets, Fine-tuning, Pre-trained feature,  [ImageNet], shallow lerning, [Caffe], [softmax]
 
 
 # 参考サイト
@@ -48,6 +48,7 @@ http://qiita.com/icoxfog417/items/65e800c3a2094457c3a0)
 * スライド
     * [一般向けの Deep Learning]( http://www.slideshare.net/pfi/deep-learning-22350063)
     * [実装 ディープラーニング]( http://www.slideshare.net/yurieoka37/ss-28152060)
+    * [Deep Learning と画像認識]( http://www.slideshare.net/nlab_utokyo/deep-learning-40959442?next_slideshow=2)
     * [Deep learning]( http://www.slideshare.net/kazoo04/deep-learning-15097274)
     * [Tutorial on Deep Learning and Applications]( https://deeplearningworkshopnips2010.files.wordpress.com/2010/09/nips10-workshop-tutorial-final.pdf)
 * 解説記事
@@ -64,3 +65,9 @@ http://qiita.com/icoxfog417/items/65e800c3a2094457c3a0)
 [Caffe]: http://caffe.berkeleyvision.org/
 
 [ImageNet]: http://smrmkt.hatenablog.jp/entry/2015/03/08/195625
+
+[Rectifier]:  http://en.wikipedia.org/wiki/Rectifier_(neural_networks)
+
+[ReLU(=A unit employing the rectifier)]: http://en.wikipedia.org/wiki/Rectifier_(neural_networks)
+
+[softmax]: http://en.wikipedia.org/wiki/Softmax_function
