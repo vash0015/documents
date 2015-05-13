@@ -7,36 +7,32 @@
 	@font-family-Preview:   "MeiryoKe_PGothic", @font-family-PGothic;
 	@font-family-Editor:    "MeiryoKe_Gothic", @font-family-PMono;
 
-	* {
-		font-size: 10.5pt;
-		font-family: @font-family-Preview;
-
-		// line-height:   1em;
-		// margin-top:    0;
-		// margin-bottom: 0;
-		// margin-left:   0;
-		// margin-right:  0;
+    *, blockquote > p {
+        font-size: 10.5pt;
+        font-family: @font-family-Preview;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-	    font-size: 11pt;
+        font-size: 1.1em;
 	    font-family: @font-family-Title;
 	    border-bottom:0px;
 	    border:none;
 	}
 
-	//h1 { font-size: 16pt; }
-	//h2 { font-size: 15pt; }
-	//h3 { font-size: 15pt; }
-	//h4 { font-size: 14pt; }
-	//h5 { font-size: 13pt; }
-	//h6 { font-size: 12pt; }
+    // h1 { font-size: 1.30em; }
+    // h2 { font-size: 1.25em; }
+    // h3 { font-size: 1.20em; }
+    // h4 { font-size: 1.15em; }
+    // h5 { font-size: 1.10em; }
+    // h6 { font-size: 1.05em; }
 
 	code, tt, atom-text-editor {
-	    font-size: 10.5pt;
 	    font-family: @font-family-Editor;
 	}
+}
 
+/* 報告資料向けクラス設定 */
+.markdown-preview {
 	.secret-stamp {
 		font-size: 11pt;
 		font-weight:bold;
@@ -63,7 +59,7 @@
 .markdown-preview {
 	@background-color:white;
 
-	* {
+    *, blockquote > p {
 		//.text(highlight);
 		background: @background-color;
 	}
@@ -136,12 +132,12 @@
     }
 
 	// 箇条書き(旧)
-	ul.notice li {
-		list-style:none;
-		text-indent:-2.5em;
-		//padding-left:2.5em;
-		padding-left:1em;
-	}
+	//ul.notice li {
+	//	list-style:none;
+	//	text-indent:-2.5em;
+	//	//padding-left:2.5em;
+	//	padding-left:1em;
+	//}
 }
 
 /* 要素間の行間の設定 */
@@ -203,22 +199,16 @@
 			margin-top: 0px;
 		}
 	}
+
 	/* 内容 */
 	p, ol, ul, dl, pre, blockquote, table,
 	form, progress, meter, details, div {
 		/* 内容同士 */
-		+ p,
-		+ ol,
-		+ ul,
-		+ dl,
-		+ pre,
-		+ blockquote,
-		+ table,
-		+ form,
-		+ progress,
-		+ meter,
-		+ details,
-		+ div {
+		+p, +ol, +ul, +dl,
+		+pre, +blockquote, +table,
+		+form, +progress, +meter,
+		+details //,+div
+		{
 			margin-top: 15px;
 		}
 		/* 内容 + 見出し */
@@ -228,5 +218,25 @@
 			margin-top: 3em;
 		}
 	}
-}
 
+    /* コード類 */
+    code, tt, atom-text-editor {
+        /* コード類 + 内容 */
+		+p, +ol, +ul, +dl,
+		+pre, +blockquote, +table,
+		+form, +progress, +meter,
+		+details //,+div
+		{
+			margin-top: 15px;
+		}
+        /* コード類 + 見出し */
+		+h1, +h2, +h3, +h4, +h5, +h6 {
+			// マージン大きめ
+			margin-top: 3em;
+		}
+        /* コード類同士 */
+        code, tt, atom-text-editor {
+            margin-top: 15px;
+        }
+    }
+}
