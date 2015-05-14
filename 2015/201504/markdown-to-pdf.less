@@ -19,12 +19,12 @@
 	    border:none;
 	}
 
-    // h1 { font-size: 1.30em; }
-    // h2 { font-size: 1.25em; }
-    // h3 { font-size: 1.20em; }
-    // h4 { font-size: 1.15em; }
-    // h5 { font-size: 1.10em; }
-    // h6 { font-size: 1.05em; }
+    h1 { font-size: 1.30em; }
+    h2 { font-size: 1.25em; }
+    h3 { font-size: 1.20em; }
+    h4 { font-size: 1.15em; }
+    h5 { font-size: 1.10em; }
+    h6 { font-size: 1.05em; }
 
 	code, tt, atom-text-editor {
 	    font-family: @font-family-Editor;
@@ -53,16 +53,25 @@
 	.pagebreak {
 		page-break-after: always;
 	}
+
+	.document-end {
+		text-align: right;
+	}
 }
 
 /* 色付け */
 .markdown-preview {
-	@background-color:white;
+	// @background-color:white;
+	// background: @background-color;
 
-    *, blockquote > p {
-		//.text(highlight);
-		background: @background-color;
-	}
+    // *, blockquote > p,
+	// div, blockquote, blockquote > div,
+	// code, pre
+	// {
+	// 	//.text(highlight);
+	// 	background: @background-color;
+	// 	border-radius: @background-color;
+	// }
 }
 
 /* 章立てや箇条書きの番号付け */
@@ -163,6 +172,14 @@
 	div			:first-child {
 		// 距離を開けない
 		margin-top: 0;
+	}
+
+	/* 最後の子要素 */
+	ul:last-child,
+	ol:last-child,
+	li:last-child {
+		// マージンを少し足す
+		margin-bottom: 5px;
 	}
 
 	// リスト
