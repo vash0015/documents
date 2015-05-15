@@ -7,7 +7,7 @@
     - [x] 機械学習：問題設定
     - [x] サンプルデータセットの読込
     - [x] 学習と予測
-    - [ ] Model persistence
+    - [x] Model persistence
 * [科学データ処理のための統計学習チュートリアル]
     - [ ] Statistical learning: the setting and the estimator object in scikit-learn
     - [ ] Supervised learning: predicting an output variable from high-dimensional observations
@@ -168,18 +168,151 @@ Scikit-learn is a Python module integrating classic machine learning algorithms 
 
 ## Statistical learning: the setting and the estimator object in scikit-learn
 
+### Datasets
+
+Scikit-learn deals (取り扱う) with learning information (学習情報) from one or more (1個かそれ以上の) datasets that are represented as 2D arrays (2次元配列). They can be understood as a list of multi-dimensional observations (多次元). We say that the first axis of these arrays is the samples axis, while the second is the features axis.
+
+** A simple example shipped with the scikit: iris dataset **
+
+```py
+>>>
+>>> from sklearn import datasets
+>>> iris = datasets.load_iris()
+>>> data = iris.data
+>>> data.shape
+(150, 4)
+```
+
+It is made of 150 observations of irises (花の名前？), each described by 4 features: their sepal (がく片) and petal (花びら) length and width, as detailed in `iris.DESCR`.
 
 
+## Supervised learning: predicting an output variable from high-dimensional observation
+
+### The problem solved in supervised learning
+
+Supervised learning (教師あり学習) consists in learning the link between two datasets:
+the observed data X and an external variable y that we are trying to predict, usually called “target” or “labels”.
+Most often, y is a 1D array of length n_samples.
+
+All supervised (管理された) estimators in scikit-learn implement a `fit(X, y)` method to fit the model and a `predict(X)` method that, given unlabeled observations X (非ラベルの実測値 X を与える), returns the predicted labels y (予測ラベル Y を返す).
 
 
-## Supervised learning: predicting an output variable from high-dimensional observations
+### Vocabulary: classification and regression
+
+If the prediction task is to classify the observations in a set of finite (有限の) labels, in other words (言い換えれば) to “name” the objects observed, the task is said to be a classification (分類) task.
+On the other hand, if the goal is to predict a continuous (連続的な) target variable (目的変数), it is said to be a regression (回帰) task.
+
+When doing classification in scikit-learn, y is a vector of integers or strings.
+
+Note: See the
+[Introduction to machine learning with scikit-learn Tutorial]( http://scikit-learn.org/stable/tutorial/basic/tutorial.html#introduction)
+for a quick run-through on the basic machine learning vocabulary used within scikit-learn.
+
+
+### Nearest neighbor and the curse of dimensionality
+
+Nearest neighbor (最近傍)  
+the curse of dimensionality (次元の呪い)
+
+
+#### Classifying irises
+
+The iris dataset is a classification task consisting in identifying 3 different types of irises (Setosa, Versicolour, and Virginica) from their sepal (がく片) and petal (花びら) length and width:
+
+<div align="center"><img src=
+http://scikit-learn.org/stable/_images/plot_iris_dataset_001.png
+width="400"></div>
+
+```py
+>>> import numpy as np
+>>> from sklearn import datasets
+>>> iris = datasets.load_iris()
+>>> iris_X = iris.data
+>>> iris_y = iris.target
+>>> np.unique(iris_y)
+array([0, 1, 2])
+```
+
+#### k-Nearest neighbors classifier
+
+The simplest possible classifier is the nearest neighbor: given a new observation (観測値) X_test, find in the training set (i.e. the data used to train the estimator) the observation with the closest feature vector (最も近い特徴ベクター). (Please see the Nearest Neighbors section of the online Scikit-learn documentation for more information about this type of classifier.)
+
+** Training set and testing set **
+
+While experimenting with any (どんな～でも) learning algorithm, it is important not to test the prediction of an estimator on the data used to fit the estimator as this would not be evaluating the performance of the estimator on new data. This is why datasets are often split into (分ける) train and test data.
+
+** KNN (k nearest neighbors) classification example: **
+
+<div align="center"><img src=
+http://scikit-learn.org/stable/_images/plot_classification_001.png
+width="400"></div>
+
+```py
+>>> # Split iris data in train and test data
+>>> # A random permutation, to split the data randomly
+>>> np.random.seed(0)
+>>> indices = np.random.permutation(len(iris_X))
+>>> iris_X_train = iris_X[indices[:-10]]
+>>> iris_y_train = iris_y[indices[:-10]]
+>>> iris_X_test  = iris_X[indices[-10:]]
+>>> iris_y_test  = iris_y[indices[-10:]]
+>>> # Create and fit a nearest-neighbor classifier
+>>> from sklearn.neighbors import KNeighborsClassifier
+>>> knn = KNeighborsClassifier()
+>>> knn.fit(iris_X_train, iris_y_train)
+KNeighborsClassifier(
+    algorithm='auto', leaf_size=30, metric='minkowski',
+    metric_params=None, n_neighbors=5, p=2, weights='uniform'
+)
+>>> knn.predict(iris_X_test)
+array([1, 2, 1, 0, 0, 0, 2, 1, 2, 0])
+>>> iris_y_test
+array([1, 1, 1, 0, 0, 0, 2, 1, 2, 0])
+```
+
 ## Model selection: choosing estimators and their parameters
+
+
 ## Unsupervised learning: seeking representations of the data
+
+### Clustering: grouping observations together
+
+** The problem solved in clustering **
+
+Given the iris dataset, if we knew that there were 3 types of iris, but did not have access to a taxonomist (分類学者) to label them: we could try a clustering task: split the observations into well-separated group called clusters.
+
+#### K-means clustering
+
+Note that there exist a lot of different clustering criteria (手法) and associated algorithms (関連アルゴリズム). The simplest clustering algorithm is K-means.
+
+```py
+>>> from sklearn import cluster, datasets
+>>> iris = datasets.load_iris()
+>>> X_iris = iris.data
+>>> y_iris = iris.target
+
+>>> k_means = cluster.KMeans(n_clusters=3)
+>>> k_means.fit(X_iris)
+KMeans(copy_x=True, init='k-means++', ...
+>>> print(k_means.labels_[::10])
+[1 1 1 1 1 0 0 0 0 0 2 2 2 2 2]
+>>> print(y_iris[::10])
+[0 0 0 0 0 1 1 1 1 1 2 2 2 2 2]
+```
+
+#### Hierarchical agglomerative clustering: Ward
+#### Connectivity-constrained clustering
+#### Feature agglomeration
+
+
+
+
+
 ## Putting it all together
 ## Finding help
 
 
-</br>
+
 </br>
 </br>
 </br>
