@@ -1,0 +1,259 @@
+.markdown-preview {
+	@font-family-PGothic: "MeiryoKe_PGothic", "Takao Pゴシック", "IPA Pゴシック", "源真ゴシックP", "メイリオ", "Meiryo UI", "MeiryoKe_UIGothic", sans-serif;
+	@font-family-PMono: "MeiryoKe_Gothic", "Takaoゴシック", "IPAゴシック", "源真ゴシック", monospace;
+
+	@font-family-UI:        "Meiryo UI", @font-family-PGothic;
+	@font-family-Title:     "源真ゴシックP", @font-family-PGothic;
+	@font-family-Preview:   "MeiryoKe_PGothic", @font-family-PGothic;
+	@font-family-Editor:    "MeiryoKe_Gothic", @font-family-PMono;
+
+    *, blockquote > p {
+        font-size: 10.5pt;
+        font-family: @font-family-Preview;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+        font-size: 1.1em;
+	    font-family: @font-family-Title;
+	    border-bottom:0px;
+	    border:none;
+	}
+
+    h1 { font-size: 1.30em; }
+    h2 { font-size: 1.25em; }
+    h3 { font-size: 1.20em; }
+    h4 { font-size: 1.15em; }
+    h5 { font-size: 1.10em; }
+    h6 { font-size: 1.05em; }
+
+	code, tt, atom-text-editor {
+	    font-family: @font-family-Editor;
+	}
+}
+
+/* 報告資料向けクラス設定 */
+.markdown-preview {
+	.secret-stamp {
+		font-size: 11pt;
+		font-weight:bold;
+		text-align: left;
+	}
+
+	.parameter {
+		font-size: 9pt;
+		text-align: right;
+	}
+
+	.title {
+		font-size: 12pt;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.pagebreak {
+		page-break-after: always;
+	}
+
+	.document-end {
+		text-align: right;
+	}
+}
+
+/* 色付け */
+.markdown-preview {
+	// @background-color:white;
+	// background: @background-color;
+
+    // *, blockquote > p,
+	// div, blockquote, blockquote > div,
+	// code, pre
+	// {
+	// 	//.text(highlight);
+	// 	background: @background-color;
+	// 	border-radius: @background-color;
+	// }
+}
+
+/* 章立てや箇条書きの番号付け */
+.markdown-preview {
+	/* 章立て */
+	counter-reset: c1;
+	h1 { counter-reset: c2; }
+	h2 { counter-reset: c3; }
+	h3 { counter-reset: c4; }
+	h4 { counter-reset: c5; }
+	h5 { counter-reset: c6; }
+	h1:before {
+		margin-right: .5em;
+		content: counter(c1)".";
+		counter-increment: c1;
+	}
+	h2:before {
+		margin-right: .5em;
+		content: counter(c1)"."counter(c2)".";
+		counter-increment: c2;
+	}
+	h3:before {
+		margin-right: .5em;
+		content: counter(c1)"."counter(c2)"."counter(c3)".";
+		counter-increment: c3;
+	}
+	h4:before {
+		margin-right: .5em;
+		content: counter(c1)"."counter(c2)"."counter(c3)"."counter(c4)".";
+		counter-increment: c4;
+	}
+	h5:before {
+		margin-right: .5em;
+		content: counter(c1)"."counter(c2)"."counter(c3)"."counter(c4)"."counter(c5)".";
+		counter-increment: c5;
+	}
+	h6:before {
+		margin-right: .5em;
+		content: counter(c1)"."counter(c2)"."counter(c3)"."counter(c4)"."counter(c5)"."counter(c6)".";
+		counter-increment: c6;
+	}
+
+	/* 箇条書き */
+	ol, ul {
+        counter-reset: olcount 0;
+        text-indent:0em;
+        padding-left:1em;
+
+        >li {
+            text-indent:-1em;
+            padding-left:0em;
+        }
+    }
+    ol {
+        >li:before {
+            counter-increment: olcount;
+            content: "(" counter(olcount) ") ";
+        }
+        >li {
+            list-style-type: none;
+        }
+    }
+    ul{
+        >li {
+            list-style-position: inside;
+        }
+    }
+
+	// 箇条書き(旧)
+	//ul.notice li {
+	//	list-style:none;
+	//	text-indent:-2.5em;
+	//	//padding-left:2.5em;
+	//	padding-left:1em;
+	//}
+}
+
+/* 要素間の行間の設定 */
+.markdown-preview {
+	/* 最初の子要素 */
+	h1			:first-child,
+	h2			:first-child,
+	h3			:first-child,
+	h4			:first-child,
+	h5			:first-child,
+	h6			:first-child,
+	p			:first-child,
+	ol			:first-child,
+	ul			:first-child,
+	dl			:first-child,
+	pre			:first-child,
+	blockquote	:first-child,
+	table		:first-child,
+	form		:first-child,
+	progress	:first-child,
+	meter		:first-child,
+	details		:first-child,
+	div			:first-child {
+		// 距離を開けない
+		margin-top: 0;
+	}
+
+	/* 最後の子要素 */
+	ul:last-child,
+	ol:last-child,
+	li:last-child {
+		// マージンを少し足す
+		margin-bottom: 5px;
+	}
+
+	// リスト
+	ul, ol, li {
+		+ul, +ol, +li,
+		>ul, >ol, >li {
+			line-height: 2em;
+		}
+	}
+
+	/* 見出し同士 */
+	h1, h2, h3, h4, h5, h6 {
+		+h1, +h2, +h3, +h4, +h5, +h6 {
+			// マージン少なめ
+			margin-top: 10px;
+		}
+	}
+
+	/* 見出し + 内容 */
+	h1, h2, h3, h4, h5, h6 {
+		+ p,
+		+ ol,
+		+ ul,
+		+ dl,
+		+ pre,
+		+ blockquote,
+		+ table,
+		+ form,
+		+ progress,
+		+ meter,
+		+ details,
+		+ div {
+			//margin-top: 15px;
+			margin-top: 0px;
+		}
+	}
+
+	/* 内容 */
+	p, ol, ul, dl, pre, blockquote, table,
+	form, progress, meter, details, div {
+		/* 内容同士 */
+		+p, +ol, +ul, +dl,
+		+pre, +blockquote, +table,
+		+form, +progress, +meter,
+		+details //,+div
+		{
+			margin-top: 15px;
+		}
+		/* 内容 + 見出し */
+		+h1, +h2, +h3, +h4, +h5, +h6 {
+			// マージン大きめ
+			//margin-top: 50px;
+			margin-top: 3em;
+		}
+	}
+
+    /* コード類 */
+    code, tt, atom-text-editor {
+        /* コード類 + 内容 */
+		+p, +ol, +ul, +dl,
+		+pre, +blockquote, +table,
+		+form, +progress, +meter,
+		+details //,+div
+		{
+			margin-top: 15px;
+		}
+        /* コード類 + 見出し */
+		+h1, +h2, +h3, +h4, +h5, +h6 {
+			// マージン大きめ
+			margin-top: 3em;
+		}
+        /* コード類同士 */
+        code, tt, atom-text-editor {
+            margin-top: 15px;
+        }
+    }
+}
